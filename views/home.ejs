@@ -1,0 +1,17 @@
+<%- include("partials/header.ejs") -%>
+<h1>Home</h1>
+<p><%= homeStartingContent %></p>
+<% if(allPost.length!=0){%>
+     <h3>Your Articles are:</h3>
+<%}%> 
+<%
+allPost.forEach((post)=>{
+      var truncatedString = post.content.substring(0, 100)
+      var endString = truncatedString.concat('...')%>
+     %>
+     <h2> <%= post.title %> </h2>
+     <h5> <%= endString %>  </h5>
+     <a href="/posts/<%= post.title %>">Read More</a>
+     <%  })
+%>
+<%- include("partials/footer.ejs") -%>
